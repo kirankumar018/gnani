@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Receipt - Sri Satya Eye Care and Opticals</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .receipt-container {
+            width: 80%;
+            max-width: 600px;
+            padding: 20px;
+            margin: 20px;
+            background-color: white;
+            border: 1px solid #ddd;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+        .receipt-header {
+            text-align: center;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        .receipt-details {
+            width: 100%;
+        }
+        .receipt-details td {
+            padding: 10px 0;
+        }
+        .print-button {
+            display: block;
+            width: 100%;
+            padding: 10px 20px;
+            margin-top: 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+            font-size: 16px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .print-button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="receipt-container">
+        <div class="receipt-header">
+            <h2>Sri Satya Eye Care and Opticals</h2>
+            <p>Receipt</p>
+        </div>
+        <table class="receipt-details">
+            <tr>
+                <td><b>Name:</b></td>
+                <td id="recName"></td>
+            </tr>
+            <tr>
+                <td><b>Gender:</b></td>
+                <td id="recGender"></td>
+            </tr>
+            <tr>
+                <td><b>Date of Exam:</b></td>
+                <td id="recDateOfExam"></td>
+            </tr>
+            <tr>
+                <td><b>Address:</b></td>
+                <td id="recAddress"></td>
+            </tr>
+            <tr>
+                <td><b>MR No:</b></td>
+                <td id="recMRno"></td>
+            </tr>
+            <tr>
+                <td><b>Mobile No:</b></td>
+                <td id="recMobileNo"></td>
+            </tr>
+            <tr>
+                <td><b>Age:</b></td>
+                <td id="recAge"></td>
+            </tr>
+            <tr>
+                <td><b>Chief Complaint:</b></td>
+                <td id="recChiefComplaint"></td>
+            </tr>
+            <tr>
+                <td><b>Power of Right Eye:</b></td>
+                <td id="recRPower"></td>
+            </tr>
+            <tr>
+                <td><b>Power of Left Eye:</b></td>
+                <td id="recLPower"></td>
+            </tr>
+            <tr>
+                <td><b>Add Power:</b></td>
+                <td id="recAddPower"></td>
+            </tr>
+            <tr>
+                <td><b>Diagnosis:</b></td>
+                <td id="recDiagnosis"></td>
+            </tr>
+        </table>
+        <button class="print-button" onclick="window.print()">Print</button>
+    </div>
+
+    <script>
+        // Retrieve data from localStorage
+        var formData = JSON.parse(localStorage.getItem('formData'));
+
+        // Display the data in the receipt
+        document.getElementById('recName').textContent = formData.name;
+        document.getElementById('recGender').textContent = formData.gender;
+        document.getElementById('recDateOfExam').textContent = formData.dateOfExam;
+        document.getElementById('recAddress').textContent = formData.address;
+        document.getElementById('recMRno').textContent = formData.mrNo;
+        document.getElementById('recMobileNo').textContent = formData.mobileNo;
+        document.getElementById('recAge').textContent = formData.age;
+        document.getElementById('recChiefComplaint').textContent = formData.chiefComplaint;
+        document.getElementById('recRPower').textContent = formData.rPower;
+        document.getElementById('recLPower').textContent = formData.lPower;
+        document.getElementById('recAddPower').textContent = formData.addPower;
+        document.getElementById('recDiagnosis').textContent = formData.diagnosis;
+    </script>
+
+</body>
+</html>

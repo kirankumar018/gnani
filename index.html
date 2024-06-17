@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sri Satya Eye Care and Opticals</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100vh;
+        }
+        header, footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #4CAF50;
+            color: white;
+        }
+        h1 {
+            margin: 0;
+        }
+        .container {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        table {
+            width: 80%;
+            max-width: 600px;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        td {
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+        label {
+            display: inline-block;
+            margin-bottom: 6px;
+        }
+        input[type="text"], input[type="number"], input[type="date"] {
+            width: calc(100% - 12px);
+            padding: 6px;
+            box-sizing: border-box;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            margin-bottom: 5px;
+        }
+        .form-group input[type="radio"] {
+            margin-right: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .form-section {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            padding: 20px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Sri Satya Eye Care and Opticals</h1>
+    </header>
+
+    <div class="container">
+        <form id="receiptForm">
+            <table>
+                <tr>
+                    <td><label for="Name"><b>Name</b></label></td>
+                    <td><input type="text" id="Name" required></td>
+                </tr>
+                <tr>
+                    <td><label for="Gender"><b>Select Gender</b></label></td>
+                    <td>
+                        <input type="radio" name="Gender" id="Male" value="Male" required>Male
+                        <input type="radio" name="Gender" id="Female" value="Female">Female
+                        <input type="radio" name="Gender" id="Others" value="Others">Others
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="DateOfExam"><b>Date of Exam</b></label></td>
+                    <td><input type="date" id="DateOfExam" required></td>
+                </tr>
+                <tr>
+                    <td><label for="Address"><b>Address</b></label></td>
+                    <td><input type="text" id="Address" required></td>
+                </tr>
+                <tr>
+                    <td><label for="MRno"><b>MR No</b></label></td>
+                    <td><input type="number" id="MRno" required></td>
+                </tr>
+                <tr>
+                    <td><label for="MobileNo"><b>Mobile No</b></label></td>
+                    <td><input type="text" id="MobileNo" required></td>
+                </tr>
+                <tr>
+                    <td><label for="Age"><b>Age</b></label></td>
+                    <td><input type="number" id="Age" required></td>
+                </tr>
+                <tr>
+                    <td><label for="ChiefComplaint"><b>Chief Complaint</b></label></td>
+                    <td><input type="text" id="ChiefComplaint" required></td>
+                </tr>
+                <tr>
+                    <td><label for="RPower"><b>Power of Right Eye</b></label></td>
+                    <td><input type="text" id="RPower" required></td>
+                </tr>
+                <tr>
+                    <td><label for="LPower"><b>Power of Left Eye</b></label></td>
+                    <td><input type="text" id="LPower" required></td>
+                </tr>
+                <tr>
+                    <td><label for="AddPower"><b>Add Power</b></label></td>
+                    <td><input type="text" id="AddPower" required></td>
+                </tr>
+                <tr>
+                    <td><label for="Diagnosis"><b>Diagnosis</b></label></td>
+                    <td><input type="text" id="Diagnosis" required></td>
+                </tr>
+            </table>
+
+            <div class="form-section">
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+
+    <footer>
+        &copy; 2024 Sri Satya Eye Care and Opticals
+    </footer>
+
+    <script>
+        document.getElementById('receiptForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Gather form data
+            var formData = {
+                name: document.getElementById('Name').value,
+                gender: document.querySelector('input[name="Gender"]:checked').value,
+                dateOfExam: document.getElementById('DateOfExam').value,
+                address: document.getElementById('Address').value,
+                mrNo: document.getElementById('MRno').value,
+                mobileNo: document.getElementById('MobileNo').value,
+                age: document.getElementById('Age').value,
+                chiefComplaint: document.getElementById('ChiefComplaint').value,
+                rPower: document.getElementById('RPower').value,
+                lPower: document.getElementById('LPower').value,
+                addPower: document.getElementById('AddPower').value,
+                diagnosis: document.getElementById('Diagnosis').value
+            };
+
+            // Store data in localStorage
+            localStorage.setItem('formData', JSON.stringify(formData));
+
+            // Redirect to receipt page
+            window.location.href = 'receipt.html';
+        });
+    </script>
+
+</body>
+</html>
